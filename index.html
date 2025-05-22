@@ -45,12 +45,19 @@
     nav {
       display: flex;
       justify-content: flex-end;
-      padding: 2rem;
-      gap: 2rem;
+      flex-wrap: wrap;
+      padding: 1.5rem;
+      gap: 1.5rem;
       font-size: 0.9rem;
       text-transform: uppercase;
       position: relative;
       z-index: 1;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        justify-content: center;
+      }
     }
 
     nav a {
@@ -64,21 +71,27 @@
     }
 
     header {
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-direction: column;
       text-align: center;
-      padding: 2rem;
+      padding: 2rem 1rem 4rem;
       position: relative;
       z-index: 1;
     }
 
     header h1 {
-      font-size: 3rem;
+      font-size: 2.5rem;
       color: var(--text);
       margin-bottom: 1rem;
+    }
+
+    @media (min-width: 600px) {
+      header h1 {
+        font-size: 3rem;
+      }
     }
 
     .gradient-text {
@@ -90,7 +103,7 @@
     }
 
     header h2 {
-      font-size: 2rem;
+      font-size: 1.3rem;
       font-weight: normal;
       color: var(--text);
       opacity: 0.2;
@@ -100,6 +113,7 @@
       max-width: 600px;
       margin-top: 1.5rem;
       color: var(--muted);
+      padding: 0 1rem;
     }
 
     .btn {
@@ -130,7 +144,7 @@
 
     footer {
       text-align: center;
-      padding: 2rem;
+      padding: 4rem 1rem 2rem;
       font-size: 0.9rem;
       color: var(--muted);
       position: relative;
@@ -141,7 +155,9 @@
       margin-top: 2rem;
       display: flex;
       justify-content: center;
+      flex-wrap: wrap;
       gap: 1.5rem;
+      padding: 0 1rem;
     }
 
     .socials a {
@@ -165,7 +181,7 @@
 
   <header>
     <h1>Hi, I'm <span class="gradient-text">Artin Seyrafi</span></h1>
-    <div style="display: flex; gap: 1rem; margin-top: 0.2rem; justify-content: center;">
+    <div style="display: flex; gap: 1rem; margin-top: 0.2rem; justify-content: center; flex-wrap: wrap;">
         <img src="images/artin-seyrafi-picnic.jpg" alt="Artin Seyrafi wearing a white shirt at night, standing outdoors with camera flash lighting" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent);">
         <img src="images/artin-seyrafi-christmas.png" alt="Artin Seyrafi wearing a dark coat at night, standing outdoors with softly illuminated hair, festive and calm atmosphere" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; object-position: 50% 10%; border: 2px solid var(--accent);">
     </div>
