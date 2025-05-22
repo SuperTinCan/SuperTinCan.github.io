@@ -1,111 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta property="og:image" content="https://artinseyrafi.github.io/images/artin-seyrafi-picnic.jpg" />
-    <meta property="og:title" content="Artin Seyrafi – Portfolio" />
-    <meta property="og:description" content="Explore the work, projects, and photos of Artin Seyrafi, a Computer Science student at UTD." />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Artin Seyrafi</title>
+  <style>
+    :root {
+      --text: #ccd6f6;
+      --accent: #64ffda;
+      --muted: #8892b0;
+      --font-main: 'Segoe UI', sans-serif;
+    }
 
-    <title>Artin Seyrafi</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #f5f5f5;
-            color: #333;
-        }
-        header {
-            background: #111;
-            color: #fff;
-            padding: 2rem 1rem;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
-        header p {
-            font-size: 1.2rem;
-        }
-        main {
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-        section {
-            margin-bottom: 2rem;
-        }
-        h2 {
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1rem;
-        }
-        ul.projects li {
-            margin-bottom: 0.5rem;
-        }
-        footer {
-            text-align: center;
-            padding: 1.5rem 1rem;
-            background: #222;
-            color: #ccc;
-        }
-        a {
-            color: #0077cc;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        .socials a {
-            margin: 0 10px;
-        }
-    </style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      color: var(--text);
+      font-family: var(--font-main);
+      line-height: 1.6;
+      background: linear-gradient(135deg, #050d1a 0%, #0a192f 100%);
+      background-size: cover;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Ccircle fill='%23212d45' cx='25' cy='25' r='1'/%3E%3C/svg%3E");
+      opacity: 0.05;
+      z-index: 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: flex-end;
+      padding: 2rem;
+      gap: 2rem;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 1;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    header {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .gradient-text {
+      background: linear-gradient(to right, #64ffda, #00c9ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+    }
+
+    header h2 {
+      font-size: 2rem;
+      font-weight: normal;
+      color: var(--text);
+      opacity: 0.2;
+    }
+
+    header p {
+      max-width: 600px;
+      margin-top: 1.5rem;
+      color: var(--muted);
+    }
+
+    .btn {
+      margin-top: 2rem;
+      padding: 0.8rem 1.5rem;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      background: transparent;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.3s;
+      display: inline-block;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: var(--accent);
+      color: #0a192f;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+      position: relative;
+      z-index: 1;
+    }
+
+    .socials {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .socials a {
+      color: var(--muted);
+      font-size: 1.2rem;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .socials a:hover {
+      color: var(--accent);
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Artin Seyrafi</h1>
-        <p>Computer Science Student | Developer | Creator of VaultNotes</p>
-    </header>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-    <main>
-        <section>
-            <h2>About Me</h2>
-            <div style="display: flex; align-items: flex-start; gap: 1.5rem; margin-bottom: 1rem;">
-                <div style="display: flex; flex-direction: row; gap: 1rem;">
-                    <img src="images/artin-seyrafi-picnic.jpg" alt="Picture of Artin Seyrafi wearing a white shirt at a picnic." style="height: 200px; border-radius: 8px;">
-                    <img src="images/artin-seyrafi-christmas.png" alt="Picture of Artin Seyrafi wearing a scarf during Christmas." style="height: 200px; border-radius: 8px;">
-                    <img src="images/artin-seyrafi-thanksgiving.jpg" alt="Picture of Artin Seyrafi wearing a black coat during a Thanksgiving dinner." style="height: 200px; border-radius: 8px;">
-                </div>
-                <p style="margin: 0;">
-                   I'm a Computer Science major at the University of Texas at Dallas, passionate about full-stack development, systems programming, and exploring the boundaries of AI and web technology. I enjoy building tools that are useful, secure, and elegant — whether it's an encrypted note-taking app, a personal website, or a real-time messaging system.
-                   <br><br>My experience spans across various programming languages and technologies, from writing low-level C code in Linux to developing dynamic front-ends with React and JavaScript. I believe that great software is not only functional but also intuitive and enjoyable to use.
-                </p>
-            </div>
-        </section>
+  <header>
+    <h1>Hi, I'm <span class="gradient-text">Artin Seyrafi</span></h1>
+    <div style="display: flex; gap: 1rem; margin-top: 0.2rem; justify-content: center;">
+        <img src="images/artin-seyrafi-picnic.jpg" alt="Artin Seyrafi wearing a white shirt at night, standing outdoors with camera flash lighting" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent);">
+        <img src="images/artin-seyrafi-christmas.png" alt="Artin Seyrafi wearing a dark coat at night, standing outdoors with softly illuminated hair, festive and calm atmosphere" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; object-position: 50% 10%; border: 2px solid var(--accent);">
+    </div>
+    <h2>Software Engineer | Full-Stack Developer</h2>
+    <p>
+      I'm a Computer Science major at UTD passionate about full-stack development,
+      systems programming, and exploring the boundaries of AI and web technology.
+      I enjoy building tools that are useful, secure, and elegant.
+    </p>
+    <div class="btn-group">
+      <a class="btn" href="#projects">View My Work</a>
+      <a class="btn" href="resume.pdf" download>Download Resume</a>
+    </div>
 
-        <section>
-            <h2>Projects</h2>
-            <ul class="projects">
-                <!-- <li><a href="https://github.com/artinseyrafi/vaultnotes" target="_blank">VaultNotes</a> – A secure, encrypted note-taking app built with React and SQL.</li> -->
-                <li><a href="https://github.com/SuperTinCan" target="_blank">More on GitHub</a> – Browse my public repositories.</li>
-            </ul>
-        </section>
+    <div class="socials">
+      <a href="https://github.com/SuperTinCan" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/artinseyrafi" target="_blank">LinkedIn</a>
+      <a href="https://www.instagram.com/SuperTinCan" target="_blank">Instagram</a>
+    </div>
+  </header>
 
-        <section>
-            <h2>Socials</h2>
-            <p class="socials">
-                <a href="https://www.instagram.com/SuperTinCan" target="_blank">Instagram</a> |
-                <a href="https://www.linkedin.com/in/artinseyrafi" target="_blank">LinkedIn</a> |
-                <a href="https://www.x.com/RealTinCan" target="_blank">X (Twitter)</a> |
-                <!-- <a href="mailto:youremail@example.com">Email Me</a> -->
-            </p>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2025 Artin Seyrafi</p>
-    </footer>
+  <footer>
+    <p>&copy; 2025 Artin Seyrafi. All rights reserved.</p>
+  </footer>
 </body>
 </html>
