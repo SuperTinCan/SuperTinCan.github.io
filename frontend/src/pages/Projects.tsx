@@ -1,77 +1,130 @@
+import { ArrowUpRight, Github } from 'lucide-react'
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+
+const LINKS = {
+  berry: 'https://github.com/SuperTinCan/AgenticTradingAssistant',
+  novaRoute: 'https://github.com/SuperTinCan/NovaRoute',
+  vaultNotes: 'https://github.com/SuperTinCan/Secure-Notes',
+}
+
 type Project = {
   title: string
   meta: string
   description: string
   image: string
   link: string
+  stack: string[]
+  repo?: string
 }
 
 const projects: Project[] = [
   {
-    title: 'Berry - Agentic Trading Assistant',
-    meta: 'August 2025 - December 2025',
+    title: 'Berry – Agentic Trading Assistant',
+    meta: '1st Place FinTech Project Winner',
     description:
-      'Berry mimics the research and execution workflow of a real life trading firm to deliver buy/hold/sell decisions, risk commentary, and actionable investment plans.',
+      'Berry mirrors the workflow of a real life trading firms with research, risk, and execution loops to produce buy/hold/sell plans you can trust.',
     image: '/images/projects/BerryImage.png',
-    link: 'https://github.com/SuperTinCan/AgenticTradingAssistant',
+    link: LINKS.berry,
+    stack: ['LangGraph Agents', 'OpenAI/Gemini', 'RESTful API', 'React/TypeScript', 'Vite', 'TailwindCSS'],
+    repo: LINKS.berry,
   },
   {
-    title: 'NovaRoute - Banking Fraud Detection (Hackathon Project)',
-    meta: 'November 2025',
+    title: 'NovaRoute - Banking Fraud Detection',
+    meta: 'CapitalOne Hackathon',
     description:
       'NovaRoute is an AI-driven customer service platform that intelligently routes user inquiries based on fraud risk, intent, and urgency.',
     image: '/images/projects/NovaRouteImage.jpg',
-    link: 'https://github.com/SuperTinCan/NovaRoute',
+    link: LINKS.novaRoute,
+    stack: ['Vite', 'Tailwind', 'shadcn/ui', 'React Router'],
+    repo: LINKS.novaRoute,
   },
   {
     title: 'VaultNotes',
-    meta: 'Currently being developed',
+    meta: 'Security-forward notes',
     description:
-      'VaultNotes is a secure notes application that allows users to store sensitive information in an encrypted format. The app uses AES encryption to ensure that your data is safe and accessible only to you. Built with React and Node.js, it provides a user-friendly interface for managing your notes securely.',
+      'Encrypted note-taking with AES, granular access, and a frictionless UI for storing sensitive ideas safely.',
     image: '/images/projects/VaultNotes_Logo2.png',
-    link: 'https://github.com/SuperTinCan/Secure-Notes',
+    link: LINKS.vaultNotes,
+    stack: ['React', 'Node.js', 'AES-256', 'Tailwind'],
+    repo: LINKS.vaultNotes,
   },
 ]
 
 function Projects() {
   return (
-    <div className="mx-auto max-w-5xl px-6 pb-14 pt-10 md:pt-16 lg:pt-20">
-      <header className="text-center">
-        <h1 className="text-3xl font-semibold sm:text-4xl">
-          My{' '}
-          <span className="bg-gradient-to-r from-emerald-400 to-sky-400 bg-clip-text text-transparent">Projects</span>
-        </h1>
-        <p className="mt-3 text-sm text-slate-400 sm:text-base">A collection of personal and academic work</p>
+    <div className="mx-auto max-w-6xl px-6 pb-16 pt-12">
+      <header className="flex flex-col gap-2">
+        <Badge className="w-fit border-emerald-500/40 bg-emerald-400/10 text-emerald-100">Projects</Badge>
+        <div>
+          <h1 className="text-3xl font-semibold sm:text-4xl">
+            Built with{' '}
+            <span className="bg-gradient-to-r from-emerald-400 to-sky-400 bg-clip-text text-transparent">security</span>{' '}
+            and polish.
+          </h1>
+          <p className="mt-2 max-w-2xl text-sm text-slate-400 sm:text-base">
+            A quick look at the products and experiments I’m building with TailwindCSS and shadcn/ui.
+          </p>
+        </div>
       </header>
 
-      <div id="projects" className="mt-10 grid gap-8 md:grid-cols-2">
-        {projects.map((project) => (
-          <article
+      <div id="projects" className="mt-8 grid gap-6 md:grid-cols-2">
+        {projects.map((project, index) => (
+          <Card
             key={project.title}
-            className="flex flex-col overflow-hidden rounded-2xl border border-slate-800/80 bg-slate-900/50 shadow-2xl shadow-black/20 backdrop-blur"
+            className="fade-up group overflow-hidden border-slate-800/70 bg-slate-900/70 shadow-emerald-500/10 transition hover:-translate-y-1 hover:border-emerald-500/40 hover:shadow-xl"
+            style={{ animationDelay: `${index * 120}ms` }}
           >
-            <img
-              src={project.image}
-              alt={project.title}
-              className="h-56 w-full object-cover object-center"
-              loading="lazy"
-            />
-            <div className="flex flex-1 flex-col gap-3 px-5 py-4">
-              <div>
-                <h2 className="text-xl font-semibold text-emerald-300">{project.title}</h2>
-                <p className="text-xs uppercase tracking-[0.2em] text-slate-500">{project.meta}</p>
-              </div>
-              <p className="flex-1 text-sm leading-relaxed text-slate-300">{project.description}</p>
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-300 transition hover:text-emerald-200"
-              >
-                View Project <span aria-hidden="true">→</span>
-              </a>
+            <div className="relative h-48 overflow-hidden">
+              <img
+                src={project.image}
+                alt={project.title}
+                className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent" />
+              <Badge className="absolute left-3 top-0.5 border-emerald-500/40 bg-emerald-400/15 text-emerald-100">
+                {project.meta}
+              </Badge>
             </div>
-          </article>
+
+            <CardHeader className="space-y-2">
+              <CardTitle className="text-xl text-slate-50">{project.title}</CardTitle>
+              <CardDescription className="text-slate-400">{project.description}</CardDescription>
+            </CardHeader>
+
+            <CardContent className="space-y-3">
+              <div className="flex flex-wrap gap-2">
+                {project.stack.map((item) => (
+                  <Badge key={item} variant="outline" className="border-slate-700/70 bg-slate-900/60 text-slate-100">
+                    {item}
+                  </Badge>
+                ))}
+              </div>
+            </CardContent>
+
+            <CardFooter className="flex items-center justify-between gap-3 border-t border-slate-800/70 pt-4">
+              <Button
+                asChild
+                size="sm"
+                className="bg-gradient-to-r from-emerald-400 to-sky-400 text-slate-50 hover:-translate-y-0.5"
+              >
+                <a href={project.link} target="_blank" rel="noreferrer">
+                  Open project
+                  <ArrowUpRight className="h-4 w-4" />
+                </a>
+              </Button>
+              {project.repo && (
+                <Button variant="ghost" asChild size="sm" className="text-slate-200 hover:text-emerald-200">
+                  <a href={project.repo} target="_blank" rel="noreferrer">
+                    Repo
+                    <Github className="h-4 w-4" />
+                  </a>
+                </Button>
+              )}
+            </CardFooter>
+          </Card>
         ))}
       </div>
     </div>

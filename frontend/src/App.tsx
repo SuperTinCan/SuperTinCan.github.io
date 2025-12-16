@@ -9,6 +9,11 @@ function ScrollToHash() {
   const location = useLocation()
 
   useEffect(() => {
+    // Skip auto-scroll when clicking "About" on home; allow other hashes (e.g., #contact) to scroll.
+    if (location.pathname === '/' && location.hash === '#about') {
+      return
+    }
+
     if (location.hash) {
       const hashId = location.hash.replace('#', '')
       const section = document.getElementById(hashId)
