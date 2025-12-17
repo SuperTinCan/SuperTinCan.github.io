@@ -42,15 +42,15 @@ function Navigation() {
 
   return (
     <header className="sticky top-0 z-20 bg-slate-950/70 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-5">
-        <Link to="/" className="flex items-center gap-3">
+      <div className="mx-auto flex max-w-6xl items-center justify-center gap-4 px-4 py-4 sm:justify-between sm:px-6 sm:py-5">
+        <Link to="/" className="hidden items-center gap-3 sm:flex">
           <Badge variant="secondary" className="border-emerald-500/40 bg-emerald-400/10 text-emerald-200">
             Artin Seyrafi
           </Badge>
           <span className="text-xs uppercase tracking-[0.35em] text-slate-400">Builder</span>
         </Link>
 
-        <div className="flex items-center gap-2 rounded-full border border-slate-800/70 bg-slate-900/70 px-2 py-1">
+        <div className="flex w-full items-center justify-center gap-2 rounded-full border border-slate-800/70 bg-slate-900/70 px-2 py-1 sm:w-auto">
           {navItems.map((item) => (
             <NavLink
               key={item.to}
@@ -69,7 +69,7 @@ function Navigation() {
           ))}
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="hidden items-center gap-2 sm:flex">
           <Button variant="outline" size="sm" asChild className="border-emerald-500/40 bg-slate-900/70 text-emerald-200">
             <a href="/resume.pdf" download>
               Resume
