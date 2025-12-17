@@ -17,7 +17,7 @@ const LINKS = {
 
 function Home() {
   const focusAreas = ['Secure-by-design systems', 'Full-stack product builds', 'Agentic workflows', 'DevOps & automation']
-  const tech = ['TypeScript', 'React + Vite', 'Node.js', 'Python', 'Go', 'Docker', 'PostgreSQL', 'Tailwind', 'shadcn/ui']
+  const tech = ['TypeScript', 'React + Vite', 'Node.js', 'Python', 'JavaScript', 'Flask', 'LangChain', 'RESTful API', 'GenAI', 'PostgreSQL', 'Tailwind', 'shadcn/ui']
   const signals = [
     { title: 'Berry', note: 'Agentic trading assistant with research + execution loop.', cta: 'View project', href: LINKS.projects },
     {

@@ -64,7 +64,7 @@ function Projects() {
             and polish.
           </h1>
           <p className="mt-2 max-w-2xl text-sm text-slate-400 sm:text-base">
-            A quick look at the products and experiments I’m building with TailwindCSS and shadcn/ui.
+            A quick look at the products and experiments I’m working on and have completed.
           </p>
         </div>
       </header>
